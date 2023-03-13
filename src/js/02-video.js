@@ -10,11 +10,11 @@ const onPlay = function (data) {
   localStorage.setItem(SRORAGE_KEY, data.seconds);
 };
 
-player.on('timeupdate', onPlay, THROTTLE_DELAY);
+player.on('timeupdate', throttle(onPlay, THROTTLE_DELAY));
 
 const currentTime = localStorage.getItem('videoplayer-current-time');
 if (currentTime) {
   player.setCurrentTime(currentTime);
 }
 
-console.log(Player);
+// console.log(Player);
